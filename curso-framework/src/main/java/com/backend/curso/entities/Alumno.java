@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import com.backend.curso.models.Alumno.AlumnoRequestModel;
 
@@ -43,5 +44,22 @@ public class Alumno implements Serializable {
         this.apellidoMaterno = model.getApellidoMaterno();
         this.curp = model.getCurp();
         this.numeroControl = model.getNumeroControl() + "3333";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        Alumno alumno = (Alumno) obj;
+        return curp.equals(alumno.curp) &&
+                numeroControl.equals(alumno.numeroControl) &&
+                id.equals(alumno.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(curp, numeroControl, id);
     }
 }
