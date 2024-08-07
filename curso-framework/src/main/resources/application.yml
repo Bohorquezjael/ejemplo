@@ -4,9 +4,9 @@ spring:
   application:
     name: curso
   datasource:
-    url: jdbc:postgresql://localhost:5432/curso
+    url: jdbc:postgresql://localhost/postgres
     username: postgres
-    password: toor123
+    password: 1912055897154
   jpa:
     hibernate:
       ddl-auto: update
